@@ -24,6 +24,10 @@ public:
 	string getType() const;
 	bool getAvailable() const;
 
+	//setters
+	void setCarIdentificationNumber(int);
+	void setType(string);
+
 	//Member Functions
 	void changeAvailability();
 	virtual void printCarInfo() const;
