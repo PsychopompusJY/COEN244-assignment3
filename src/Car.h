@@ -26,7 +26,7 @@ public:
 
 	//Member Functions
 	void changeAvailability();
-	virtual void printCarInfo();
+	virtual void printCarInfo() const;
 
 
 };

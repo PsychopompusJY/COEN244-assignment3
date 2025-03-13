@@ -43,7 +43,7 @@ void Car :: changeAvailability(){
 	}
 }
 
-void Car :: printCarInfo(){
+void Car :: printCarInfo() const{
 	cout << "Car Identification Number: " << carIdentificationNumber << endl;
 	cout << "Type : " << type << endl;
 	cout << "Availability: ";
