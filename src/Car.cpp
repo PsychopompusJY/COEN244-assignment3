@@ -34,6 +34,14 @@ bool Car:: getAvailable() const{
 	return available;
 }
 
+void Car:: setCarIdentificationNumber(int id){
+	carIdentificationNumber = id;
+}
+
+void Car:: setType(string type1){
+	type = type1;
+}
+
 void Car :: changeAvailability(){
 	if (available == 0){
 		available =1;
