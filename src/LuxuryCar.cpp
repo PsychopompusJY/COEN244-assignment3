@@ -15,11 +15,11 @@ LuxuryCar::LuxuryCar(int id, string type1): Car(id, type1){
 	//does nothing
 }
 
-virtual LuxuryCar:: ~LuxuryCar(){
+LuxuryCar:: ~LuxuryCar(){
 	//does nothing
 }
 
-virtual void LuxuryCar:: printCarInfo() const{
+void LuxuryCar:: printCarInfo() const{
 	cout << "Luxury Car Information: " << endl;
 	Car:: printCarInfo();
 }

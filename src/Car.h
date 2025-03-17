@@ -20,7 +20,7 @@ public:
 	virtual ~Car();
 
 	//Getters
-	int getCarId() const;
+	int getCarIdentificationNumber() const;
 	string getType() const;
 	bool getAvailable() const;
 

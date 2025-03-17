@@ -14,11 +14,11 @@ StandardCar:: StandardCar(int id, string type1) : Car(id, type1){
 	//does nothing
 }
 
-virtual StandardCar:: ~StandardCar(){
+StandardCar:: ~StandardCar(){
 	//does nothing
 }
 
-virtual void StandardCar:: printCarInfo() const{
+void StandardCar:: printCarInfo() const{
 	cout << "Standard Car Information: " << endl;
 	Car :: printCarInfo();
 }

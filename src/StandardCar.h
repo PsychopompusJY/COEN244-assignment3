@@ -18,4 +18,4 @@ public:
 	virtual void printCarInfo() const;
 };
 
-#endif STANDARD_CAR_H_
+#endif

@@ -19,4 +19,4 @@ public:
 	virtual void printCarInfo() const;
 };
 
-#endif LUXURY_CAR_H_
+#endif

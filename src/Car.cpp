@@ -22,7 +22,7 @@ Car::~Car(){
 	//Does nothing
 }
 
-int Car :: getCarId() const{
+int Car :: getCarIdentificationNumber() const{
 	return carIdentificationNumber;
 }
 
