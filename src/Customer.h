@@ -23,10 +23,14 @@ private:
 	vector<Car*> carsRented;
 	int numCarsRented;
 public:
+	//Constructors and destructor
 	Customer();
 	Customer(string, string, string);
 	~Customer();
 
+	//No setters, users will not change their account information
+
+	//Getters
 	string getFName();
 	string getLName();
 	string getAddress();

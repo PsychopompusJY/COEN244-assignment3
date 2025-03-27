@@ -27,7 +27,7 @@ Customer :: ~Customer(){
 	cout << "Customer Deleted";
 }
 
-
+//Getters
 string Customer::getFName(){
 	return fName;
 }
@@ -41,11 +41,11 @@ string Customer::getAddress(){
 }
 
 
-
+//Prints info about the customer, including the cars they rented
 void Customer::printCustomerInfo(){
-	cout << fName << endl;
-	cout << lName << endl;
-	cout << address << endl;
+	cout << "Name: "<< fName<< " "  << lName<< endl;
+	cout << "Address:" << address << endl;
+	cout<< "Cars rented: " << endl;
 	for (int i = 0; i < numCarsRented; i++){
 		carsRented[i]->printCarInfo();
 	}

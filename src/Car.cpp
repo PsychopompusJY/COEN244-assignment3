@@ -59,20 +59,26 @@ void Car::setDates(Date rentalDate1){
 	dateRented.setMonth(rentalDate1.getMonth());
 	dateRented.setYear(rentalDate1.getYear());
 
-	if(rentalDate1.getMonth() <12){
-		dateRented.setDay(rentalDate1.getDay());
-		dateRented.setMonth(rentalDate1.getMonth()+1);
-		dateRented.setYear(rentalDate1.getYear());
+	if(rentalDate1.getDay() == 0 && rentalDate1.getMonth() ==0 && rentalDate1.getYear() == 0){
+		expectedReturnDate.setDay(0);
+		expectedReturnDate.setMonth(0);
+		expectedReturnDate.setMonth(0);
+	}
+
+	else if(rentalDate1.getMonth() ==12){
+		expectedReturnDate.setDay(rentalDate1.getDay());
+		expectedReturnDate.setMonth(rentalDate1.getMonth()+1);
+		expectedReturnDate.setYear(rentalDate1.getYear());
 	}
 	else if(dateRented.getMonth()==1 && dateRented.getDay() >28){
-		dateRented.setDay(rentalDate1.getDay() - 28);
-		dateRented.setMonth(3);
-		dateRented.setYear(rentalDate1.getYear());
+		expectedReturnDate.setDay(rentalDate1.getDay() - 28);
+		expectedReturnDate.setMonth(3);
+		expectedReturnDate.setYear(rentalDate1.getYear());
 	}
 	else{
-		dateRented.setDay(rentalDate1.getDay());
-		dateRented.setMonth(1);
-		dateRented.setYear(rentalDate1.getYear()+1);
+		expectedReturnDate.setDay(rentalDate1.getDay());
+		expectedReturnDate.setMonth(rentalDate1.getMonth()+1);
+		expectedReturnDate.setYear(rentalDate1.getYear());
 	}
 }
 //Inverts the availablity status of the boolean available

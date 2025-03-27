@@ -7,14 +7,13 @@
 #ifndef DATE_H_
 #define DATE_H_
 
-// Class composition: Class Date uses an object of class Time.
 
 #include <iostream>
 using namespace std;
 
 class Date {
    public:
-      Date(int, int, int);   // sets day, month, year, hours, minutes, seconds
+      Date(int, int, int);   // sets day, month, year
 
       void printDate() const;   	    // print date to the screen
 

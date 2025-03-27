@@ -15,28 +15,33 @@
 #include "Customer.h"
 
 using namespace std;
-
+//Constructor
 Company::Company() : Carcount(0), numCustomers(0){
 	cars = new Car*[1000];
 	customers = new Customer*[1];
 }
 
+//Destructor
 Company::~Company() {
+	cout << 'Company Destructor Called';
 	delete[] cars;
 	delete[] customers;
 }
 
+
 void Company::newCustomer(Customer* customer){
 	numCustomers++;
 	if(numCustomers >1){
-	Customer** temparray = new Customer* [numCustomers];
-	for (int i = 0; i <numCustomers-1; i++){
-		temparray[i] = customers[i];
+		Customer** temparray = new Customer* [numCustomers];
+		for (int i = 0; i <numCustomers-1; i++){
+			temparray[i] = customers[i];
+		}
+		temparray[numCustomers-1] = customer;
+		delete[] customers;
+		customers = temparray;
 	}
-	temparray[numCustomers-1] = customer;
-	delete[] customers;
-	customers = temparray;
-	delete[] temparray;
+	else{
+		customers[numCustomers-1] = customer;
 	}
 }
 
@@ -57,7 +62,7 @@ void Company::displayCars() const{
 	}
 }
 
-void Company::displayCustomers(){
+void Company::displayCustomers() const{
 	cout << "Customers: " << endl;
 	for (int i = 0; i < numCustomers; i++){
 		customers[i] -> printCustomerInfo();
@@ -66,11 +71,11 @@ void Company::displayCustomers(){
 
 Car *Company::getCarById(int id){
 	for (int i = 0; i<Carcount; i++){
-		if (cars[i] -> getCarIdentificationNumber() == id && cars[i] -> getAvailable()){
+		if (cars[i] -> getCarIdentificationNumber() == id){
 			return cars[i];
 		}
 	}
-	return nullptr; //Car not found or not available
+	return nullptr;
 }
 
 Customer *Company::getCustomerByFirstName(string fName){

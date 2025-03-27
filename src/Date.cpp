@@ -11,7 +11,6 @@
 
 
 Date::Date(int d, int m, int y) {
-    cout << "Constructor Date(...) is called" << endl;
     day = d;
     month = m;
     year = y ;
@@ -45,6 +44,6 @@ int Date::getYear(){
 
 
 void Date::printDate() const {
-   cout << month << "/" << day << "/" << year << " ";
+   cout << day << "/" << month << "/" << year << " " << endl;
 }
 
