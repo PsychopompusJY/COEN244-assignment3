@@ -1,14 +1,6 @@
 //Benjamin Gutman 40315265
 //Jiyong Jeon 40314593
-//
-//The company rents two types of cars: standard and
-//luxury cars. A car is identified by a car identification number (int), a type (string), and a flag that
-//indicates whether the car is currently available or not. The company distinguishes between two
-//types of customers: regular customers and corporate customers.
-//
-//Create the class Company. A company has many cars. You can assume that the maximum
-//number of cars the company can have is 1000. You should create all member functions
-//including functions that update the cars array. Create a driver to test the Company class.
+
 
 #include "Company.h"
 #include <iostream>
@@ -22,15 +14,23 @@ Company::Company() : Carcount(0), numCustomers(0){
 }
 
 //Destructor
+//destructor must individually delete each element then the array itself
 Company::~Company() {
-	cout << 'Company Destructor Called';
+	cout << "Company Destructor Called";
+	for (int i =0; i<Carcount; i++){
+		delete cars[i];
+	}
 	delete[] cars;
+	for (int i = 0; i<numCustomers;i++){
+		delete customers[i];
+	}
 	delete[] customers;
 }
 
 
 void Company::newCustomer(Customer* customer){
 	numCustomers++;
+	//makes a new array for the increased size, deletes the old one and reallocates the new array to the old one
 	if(numCustomers >1){
 		Customer** temparray = new Customer* [numCustomers];
 		for (int i = 0; i <numCustomers-1; i++){
@@ -45,6 +45,7 @@ void Company::newCustomer(Customer* customer){
 	}
 }
 
+//Adds a new car object to the cars array, since there is a limit to the cars there is no need to reform a new array on each addition
 void Company::addCar(Car* car){
 	if (Carcount<1000){
 		cars[Carcount++]= car;
@@ -55,6 +56,7 @@ void Company::addCar(Car* car){
 	}
 }
 
+//prints out all car information, will decide if the juxury or standard car function will be called at runtime
 void Company::displayCars() const{
 	cout<<"Company cars list: "<<endl;
 	for (int i=0; i<Carcount; i++){
@@ -62,6 +64,7 @@ void Company::displayCars() const{
 	}
 }
 
+//prints out all customers
 void Company::displayCustomers() const{
 	cout << "Customers: " << endl;
 	for (int i = 0; i < numCustomers; i++){
@@ -69,6 +72,7 @@ void Company::displayCustomers() const{
 	}
 }
 
+//Looks for a car by the id number, returns nullptr if it does not exist
 Car *Company::getCarById(int id){
 	for (int i = 0; i<Carcount; i++){
 		if (cars[i] -> getCarIdentificationNumber() == id){
@@ -78,6 +82,7 @@ Car *Company::getCarById(int id){
 	return nullptr;
 }
 
+//finds a customer in the customers array by the first name
 Customer *Company::getCustomerByFirstName(string fName){
 	for (int i = 0; i<numCustomers; i++){
 		if (customers[i] -> getFName() == fName){

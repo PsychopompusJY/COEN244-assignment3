@@ -30,15 +30,21 @@ public:
 
 	//No setters, users will not change their account information
 
+	//Mutators
+
 	//Getters
 	string getFName();
 	string getLName();
 	string getAddress();
 
 
+	//Member functions
+
+	void printCustomerInfo();
+
+	//friends of the class, forward declaration
 	void friend rentCar(string, int, Company*, Date);
 	void friend returnCar(string, int, Company*);
-	void printCustomerInfo();
 
 
 };

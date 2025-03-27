@@ -18,6 +18,8 @@ public:
 	virtual ~LuxuryCar();
 
 	//member functions
+
+	//Overrides the car print function
 	virtual void printCarInfo() const;
 };
 

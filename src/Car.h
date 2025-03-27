@@ -34,7 +34,10 @@ public:
 	void setDates(Date);
 
 	//Member Functions
+	//Inverts available boolean
 	void changeAvailability();
+
+	//To be overridden by future classes
 	virtual void printCarInfo() const;
 
 

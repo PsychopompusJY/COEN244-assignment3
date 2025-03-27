@@ -19,11 +19,15 @@ class Date {
 
 
 
-      //Setters for
+      //Mutators
+
+      //Setters to change the date object after initialization
       void setDay(int);
       void setMonth(int);
       void setYear(int);
 
+
+      //getters
       int getDay();
       int getMonth();
       int getYear();

@@ -1,6 +1,5 @@
-
-
-
+//Benjamin Gutman 40315265
+//Jiyong Jeon 40314593
 
 #include <iostream>
 #include <string>
@@ -38,11 +37,13 @@ void rentCar(string Fname, int carID, Company* COENCars, Date rentalDay){
 //Allows a customer to return a car they rented
 void returnCar(string Fname, int carID, Company* COENCars){
 	Customer* tempCustomer = COENCars->getCustomerByFirstName(Fname);
+	//check for edge case
 	if (tempCustomer == nullptr){
 		cout << "Customer does not exist" << endl;
 		return;
 	}
 	Car* tempCar = COENCars ->getCarById(carID);
+	//check for edgecase
 	if (tempCar == nullptr){
 		cout << "Car does not exist" << endl;
 		return;
@@ -54,26 +55,28 @@ void returnCar(string Fname, int carID, Company* COENCars){
 			tempCustomer ->numCarsRented--;
 			tempCustomer ->carsRented.erase(tempCustomer ->carsRented.begin()+i);
 			tempCar->changeAvailability();
-			return;
+			return; // return to leave function
 		}
 	}
+	//The only way to get here is if the car exists but is not being rented by this person
 	cout << "Car is not being rented by " << tempCustomer ->fName << endl;
 }
 
-//Create a new car and add it to company
+//Create a new standard car and add it to company
 void newStandardCar(int Id, string type,Company* COENCars){
 	StandardCar* tempCar = new StandardCar(Id, type);
 	COENCars -> addCar(tempCar);
 
 }
 
+//Create a new luxury car and add it to company
 void newLuxuryCar(int Id, string type,Company* COENCars){
 	LuxuryCar* tempCar = new LuxuryCar(Id, type);
 	COENCars -> addCar(tempCar);
 
 }
 
-//Create a new car and add it to company
+//Create a new customer and add it to company
 void newCustomer(string fName, string lName, string address, Company* COENCars){
 	Customer* tempCustomer = new Customer(fName, lName, address);
 	COENCars-> newCustomer(tempCustomer);
@@ -96,6 +99,8 @@ int main(){
 	cout << "Initial Company Information: " << endl;
 	printCompanyInfo(COENCars);
 
+
+	//Create customers and cars to be rented out
 	newCustomer("Ben", "Gutman", "258 rue Berlioz", COENCars);
 	newCustomer("Brianna", "Morrisette", "258 rue Berlioz", COENCars);
 	newCustomer("Jiyong", "Jeon", "1950 Rue Claude-Gagne", COENCars);
@@ -131,19 +136,20 @@ int main(){
 
 	rentCar("Jiyong", 243, COENCars, date2);
 
-//	cout << "Company Info After Renting out Cars: " << endl;
-//	printCompanyInfo(COENCars);
+	cout << "Company Info After Renting out Cars: " << endl;
+	printCompanyInfo(COENCars);
 
-
-	//
+	//test return function
 	returnCar("Ben", 231, COENCars);
 	returnCar("Ben", 212, COENCars);
 	returnCar("Brianna", 212, COENCars);
 
+
+	//Print of final results
 	cout << "Company Info After Returning Some Cars: " << endl;
 	printCompanyInfo(COENCars);
 
-
+	//Delete all objects and reallocate memory
 	delete COENCars;
 	return 0;
 

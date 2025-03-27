@@ -9,15 +9,15 @@
 
 #include "Date.h"
 
-
+//Constructor
 Date::Date(int d, int m, int y) {
     day = d;
     month = m;
     year = y ;
 }
+//Class mutators
 
-
-
+//Setters
 void Date::setDay(int Day){
 	day = Day;
 }
@@ -29,6 +29,8 @@ void Date::setMonth(int Month){
 void Date::setYear(int Year){
 	year = Year;
 }
+
+//Getters
 
 int Date::getDay(){
 	return day;

@@ -6,7 +6,7 @@
 #include <iostream>
 #include "Customer.h"
 
-
+//constructors
 Customer::Customer(){
 	fName = "";
 	lName = "";
@@ -22,10 +22,12 @@ Customer::Customer(string firstName, string lastName, string Address){
 	numCarsRented = 0;
 }
 
+//destructor
 Customer :: ~Customer(){
 	//does nothing
-	cout << "Customer Deleted";
 }
+
+//Mutators
 
 //Getters
 string Customer::getFName(){
