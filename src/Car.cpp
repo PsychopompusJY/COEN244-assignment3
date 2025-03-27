@@ -7,29 +7,29 @@
 #include "Date.h"
 using namespace std;
 
+//Constructors
+
+//Default constructor
 Car::Car(): dateRented(0,0,0), expectedReturnDate(0,0,0){
 	carIdentificationNumber = 0;
 	type = "";
 	available = 0;
 }
 
+//Regular constructor, car cannot be rented on creation
 Car::Car(int number, string type1): dateRented(0,0,0), expectedReturnDate(0,0,0){
 	carIdentificationNumber = number;
 	type = type1;
 	available = 1;
 }
 
-Car::Car(Car& car){
-	carIdentificationNumber = car.carIdentificationNumber;
-	type = car.type;
-	available = car.available;
-	dateRented = car.dateRented;
-	expectedReturnDate = car.expectedReturnDate;
-}
 
+//Destructor
 Car::~Car(){
 	//Does nothing
 }
+
+//Getters
 
 int Car :: getCarIdentificationNumber() const{
 	return carIdentificationNumber;
@@ -43,6 +43,7 @@ bool Car:: getAvailable() const{
 	return available;
 }
 
+//Setters
 void Car:: setCarIdentificationNumber(int id){
 	carIdentificationNumber = id;
 }
@@ -51,6 +52,8 @@ void Car:: setType(string type1){
 	type = type1;
 }
 
+
+//Sets the dates of rental and returnal with edge cases for end of year and February being 28 days
 void Car::setDates(Date rentalDate1){
 	dateRented.setDay(rentalDate1.getDay());
 	dateRented.setMonth(rentalDate1.getMonth());
@@ -72,7 +75,7 @@ void Car::setDates(Date rentalDate1){
 		dateRented.setYear(rentalDate1.getYear()+1);
 	}
 }
-
+//Inverts the availablity status of the boolean available
 void Car :: changeAvailability(){
 	if (available == 0){
 		available =1;
@@ -82,6 +85,7 @@ void Car :: changeAvailability(){
 	}
 }
 
+// prints the car information, is a virtual function to be overridden by later classes
 void Car :: printCarInfo() const{
 	cout << "Car Identification Number: " << carIdentificationNumber << endl;
 	cout << "Type : " << type << endl;
@@ -92,4 +96,6 @@ void Car :: printCarInfo() const{
 	else {
 		cout << "Is Not Available" << endl;
 	}
+	dateRented.printDate();
+	expectedReturnDate.printDate();
 }

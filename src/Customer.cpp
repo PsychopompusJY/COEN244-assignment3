@@ -1,12 +1,18 @@
-#include "Customer.h"
+//Benjamin Gutman 40315265
+//Jiyong Jeon 40314593
+
+
 #include <vector>
 #include <iostream>
+#include "Customer.h"
+
 
 Customer::Customer(){
 	fName = "";
 	lName = "";
 	address = "";
 	numCarsRented = 0;
+
 }
 
 Customer::Customer(string firstName, string lastName, string Address){
@@ -35,33 +41,6 @@ string Customer::getAddress(){
 }
 
 
-
-void Customer::rentCar(int ID, Company* COENCars, Date rentalDay){
-	Car* tempCar = COENCars -> getCarById(ID);
-	if(tempCar->getAvailable()){
-		carsRented.push_back(tempCar);
-		carsRented[numCarsRented]->setDates(rentalDay);
-		carsRented[numCarsRented]->changeAvailability();
-		numCarsRented++;
-	}
-	else{
-		cout << "Car is not available" << endl;
-	}
-
-}
-
-void Customer :: returnCar(int ID, Company* COENCars){
-	Car* tempCar = COENCars -> getCarById(ID);
-	tempCar->changeAvailability();
-	for (int i = 0; i < numCarsRented; i++){
-		if (carsRented[i]->getCarIdentificationNumber() == ID){
-			carsRented.erase(carsRented.begin()+i);
-			numCarsRented--;
-			return;
-		}
-	}
-	cout << "Car is not being rented by " << fName << endl;
-}
 
 void Customer::printCustomerInfo(){
 	cout << fName << endl;

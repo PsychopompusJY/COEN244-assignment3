@@ -11,10 +11,13 @@ using namespace std;
 
 class StandardCar: public Car{
 public:
+
+	//constructors and destructor
 	StandardCar();
 	StandardCar(int, string);
 	virtual ~StandardCar();
 
+	//member functions
 	virtual void printCarInfo() const;
 };
 

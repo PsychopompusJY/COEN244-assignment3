@@ -18,6 +18,7 @@ StandardCar:: ~StandardCar(){
 	//does nothing
 }
 
+//overrides the print function from Car.h
 void StandardCar:: printCarInfo() const{
 	cout << "Standard Car Information: " << endl;
 	Car :: printCarInfo();

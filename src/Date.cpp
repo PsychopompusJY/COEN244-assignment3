@@ -1,3 +1,12 @@
+//Benjamin Gutman 40315265
+//Jiyong Jeon 40314593
+
+
+
+//Modified version of Date class posted on moodle
+
+
+
 #include "Date.h"
 
 

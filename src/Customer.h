@@ -3,7 +3,6 @@
 
 
 #include "Car.h"
-#include "Company.h"
 #include "Date.h"
 #include <string>
 #include <iostream>
@@ -13,6 +12,8 @@
 
 #ifndef CUSTOMER_H_
 #define CUSTOMER_H_
+
+class Company;
 
 class Customer{
 private:
@@ -31,8 +32,8 @@ public:
 	string getAddress();
 
 
-	void rentCar(int, Company*, Date);
-	void returnCar(int, Company*);
+	void friend rentCar(string, int, Company*, Date);
+	void friend returnCar(string, int, Company*);
 	void printCustomerInfo();
 
 

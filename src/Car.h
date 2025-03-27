@@ -21,7 +21,6 @@ private:
 public:
 	Car();
 	Car(int, string);
-	Car(Car&);
 	virtual ~Car();
 
 	//Getters

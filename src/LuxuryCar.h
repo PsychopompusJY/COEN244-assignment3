@@ -11,6 +11,8 @@ using namespace std;
 
 class LuxuryCar: public Car{
 public:
+
+	//constructors and destructor
 	LuxuryCar();
 	LuxuryCar(int, string);
 	virtual ~LuxuryCar();

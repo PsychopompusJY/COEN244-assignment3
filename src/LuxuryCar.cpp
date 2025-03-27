@@ -19,6 +19,7 @@ LuxuryCar:: ~LuxuryCar(){
 	//does nothing
 }
 
+//overrides the print function from Car.h
 void LuxuryCar:: printCarInfo() const{
 	cout << "Luxury Car Information: " << endl;
 	Car:: printCarInfo();
