@@ -15,12 +15,12 @@
 
 using namespace std;
 
-Company::Company() : Carcount(0){}
+Company::Company() : Carcount(0){
+	cars = new Car*[1000];
+}
 
 Company::~Company() {
-	for(int i = 0; i<Carcount; i++){
-		delete cars[i]; // Free allocated memory
-	}
+	delete[] cars;
 }
 
 void Company::addCar(Car* car){

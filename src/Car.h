@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <string>
+#include "Date.h"
 using namespace std;
 
 class Car{
@@ -13,10 +14,14 @@ private:
 	int carIdentificationNumber;
 	string type;
 	bool available;
+	Date dateRented;
+	Date expectedReturnDate;
+
 
 public:
 	Car();
 	Car(int, string);
+	Car(Car&);
 	virtual ~Car();
 
 	//Getters
@@ -27,6 +32,7 @@ public:
 	//setters
 	void setCarIdentificationNumber(int);
 	void setType(string);
+	void setDates(Date);
 
 	//Member Functions
 	void changeAvailability();

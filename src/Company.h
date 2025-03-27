@@ -24,14 +24,14 @@ using namespace std;
 class Company {
 
 private:
-	Car *cars[1000]; // Array of car pointers
+	Car **cars; // Array of car pointers
 	int Carcount;
 
 public:
 	Company(); // Constructor
 	~Company(); // Destructor
 
-	void addCar(Car *car); // Adds a new car to the company
+	void addCar(Car&); // Adds a new car to the company
 	void displayCars() const; // Displays all cars
 	Car *getCarById(int id); // Returns a car pointer if available
 
