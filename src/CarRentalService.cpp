@@ -129,20 +129,25 @@ int main(){
 	rentCar("Ben", 213, COENCars, date1);
 	rentCar("Ben", 231, COENCars, date1);
 	rentCar("Ben", 201, COENCars, date1);
-	rentCar("Ben", 213, COENCars, date1);
+	rentCar("Ben", 213, COENCars, date1);//Already rented car edge case
 
 	rentCar("Brianna", 232, COENCars, date3);
 	rentCar("Brianna", 212, COENCars, date3);
 
 	rentCar("Jiyong", 243, COENCars, date2);
+	rentCar("Maria", 345, COENCars, date1);//fake car edgecase
+
+	rentCar("Tim", 212, COENCars, date1);//fake person edge case
 
 	cout << "Company Info After Renting out Cars: " << endl;
 	printCompanyInfo(COENCars);
 
 	//test return function
 	returnCar("Ben", 231, COENCars);
-	returnCar("Ben", 212, COENCars);
+	returnCar("Ben", 212, COENCars);//Test Edge case of car not belonging to person
 	returnCar("Brianna", 212, COENCars);
+	returnCar("Brianna", 765, COENCars); // Test fake car edge case
+	returnCar("Jack", 212, COENCars);//fake person edge case
 
 
 	//Print of final results

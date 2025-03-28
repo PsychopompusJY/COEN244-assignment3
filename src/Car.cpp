@@ -62,7 +62,7 @@ void Car::setDates(Date rentalDate1){
 	if(rentalDate1.getDay() == 0 && rentalDate1.getMonth() ==0 && rentalDate1.getYear() == 0){
 		expectedReturnDate.setDay(0);
 		expectedReturnDate.setMonth(0);
-		expectedReturnDate.setMonth(0);
+		expectedReturnDate.setYear(0);
 	}
 
 	else if(rentalDate1.getMonth() ==12){
